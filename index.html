@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexcent-Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">
+                <!--Logo 2 parçadan oluşmaktadır. (logo resmi + logo metni)-->
+                <img src="logo.svg" alt="Nexcent Logo" class="header__logo-img">
+                <span class="header__logo-text">Nexcent</span>
+            </a>
+            <nav class="header__nav">
+                <ul class="header__menu">
+                    <li class="header__menu-item"><a href="#" class="header__menu-link">Home</a>
+                    </li>
+                    <li class="header__menu-item"><a href="#" class="header__menu-link">Features</a>
+                    </li>
+                    <li class="header__menu-item"><a href="#" class="header__menu-link">Community</a>
+                    </li>
+                    <li class="header__menu-item"><a href="#" class="header__menu-link">Blog</a>
+                    </li>
+                    <li class="header__menu-item"><a href="#" class="header__menu-link">Pricing</a>
+                </ul>
+            </nav>
+            <!--Register Butonu(yalnızca Register Now butonu içermektedir.)-->
+            <div class="header__actions">
+                <a href="#" class="btn btn--primary">Register Now &rarr;</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!--PART2: HERO SECTİON-->
+        <section class="hero">
+            <div class="hero__container">
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        Lessons and insight <br>
+                        <span class="hero__title-highlight">from 8 years</span>
+                    </h1>
+                    <p class="hero__description">
+                        Where to grow your business as a photographer: site or social media?
+                    </p>
+                    <a href="#" class="btn btn--secondary">Register</a>
+                </div>
+                <div class="hero__image">
+                    <img src="hero-image.png" alt="Hero Image" class="hero__image-img">
+                </div>
+            </div>
+            <!--
+            ● ○ ○ şeklindeki slider göstergeleridir. / Şu an sadece görsel amaçlı. *İLERDE JS İLE ÇALIŞTIRILACAK.-->
+            <div class="hero__dots">
+                <span class="hero__dot hero__dot--active"></span>
+                <span class="hero__dot"></span>
+                <span class="hero__dot"></span>
+            </div>
+            <!--PART3: CLIENTS SECTİON-->
+            <section class="clients">
+                <div class="clients__container">
+                    <h2 class="clients__title">Our Clients</h2>
+                    <p class="clients__subtitle">We have been working with some Fortune 500+ clients</p>
+                    <div class="clients__logos" id="clientsLogosContainer">
+                    </div>
+                </div>
+            </section>
+            </div>
+    </main>
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
