@@ -1,4 +1,4 @@
-/*CSS ROOT PARTI: Belirli renkleri ekledim. UNUTMA! daha sonra düzenleme yapacağım.*/
+/*CSS ROOT PARTI:Bu alan içerisine değişkenleri tanımlayarak renkleri tek bir merkezden yönetilebilir hale getiriyoruz.*/
 :root {
     --color-black: #263238;
     --color-d-grey: #4D4D4D;
@@ -12,13 +12,22 @@
     --color-secondary: #263238;
     --color-info: #2194F3;
 
+    --color-shade-1: #43A046;
+    --color-shade-2: #388E3B;
     --color-shade-3: #237D31;
+    --color-shade-4: #1B5E1F;
+    --color-shade-5: #103E13;
+
+
     --color-tint-1: #66BB69;
+    --color-tint-2: #81C784;
+    --color-tint-3: #A5D6A7;
+    --color-tint-4: #C8E6C9;
     --color-tint-5: #E8F5E9;
 
     --color-warning: #FBC02D;
-    --color-error: #E55383;
-    --color-success: #227D31;
+    --color-error: #E53835;
+    --color-success: #2E7D31;
 
     --fs-h1: 64px;
     --lh-h1: 76px;
@@ -43,10 +52,12 @@
     --shadow-8px: 0px 8px 16px rgba(171, 189, 209, 0.40);
 }
 
+/**, *::before, *::after (Evrensel Seçici): Sayfadaki gelmiş geçmiş tüm elementleri, onların öncesini ve sonrasını seçer.*/
 *,
 *::before,
 *::after {
     margin: 0;
+    /*margin: 0; padding: 0;: Tarayıcının kafasına göre verdiği tüm dış ve iç boşlukları sıfırlayarak bize bomboş, temiz bir tuval sunar.*/
     padding: 0;
     box-sizing: border-box;
 }
@@ -56,6 +67,7 @@ body {
     color: var(--color-d-grey);
     background-color: var(--color-white);
     -webkit-font-smoothing: antialiased;
+    /*Pikselliği önler.*/
 }
 
 a {
@@ -65,6 +77,12 @@ a {
 
 ul {
     list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .btn {
@@ -94,7 +112,8 @@ ul {
 .header {
     width: 100%;
     background-color: var(--color-white);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    box-shadow: none;
+    border-bottom: 1px solid var(--color-silver);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -123,22 +142,33 @@ ul {
     width: auto;
 }
 
+.header__nav {
+    /* Menü linklerinin ortada kalmasını sağlayan kapsayıcı */
+}
+
 .header__menu {
     display: flex;
     gap: 30px;
 }
 
 .header__menu-link {
-    font-size: 16px;
+    font-size: var(--fs-body-2);
+    line-height: var(--lh-body-2);
     font-weight: 400;
     color: var(--color-grey);
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, font-weight 0.3s ease;
 }
 
+/*Aktif olan veya üzerine gelinen linklerin stili*/
 .header__menu-link:hover,
 .header__menu-link--active {
     color: var(--color-primary);
     font-weight: 500;
+}
+
+.header__actions {
+    display: flex;
+    align-items: center;
 }
 
 .hero {
@@ -165,10 +195,10 @@ ul {
 
 .hero__title {
     font-size: var(--fs-h1);
-    line-height: var(--lh-h1);
+    line-height: 1.2;
     font-weight: 600;
     color: var(--color-black);
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 }
 
 .hero__title--gradient {
@@ -248,6 +278,7 @@ ul {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    /* Ekran küçüldüğünde logoların alt satıra geçmesini sağlar */
     gap: 32px;
 }
 
@@ -263,4 +294,133 @@ ul {
 .clients__logo-img:hover {
     filter: grayscale(0%);
     opacity: 1;
+}
+
+.features {
+    background-color: var(--color-white);
+    padding: 48px 0;
+    text-align: center;
+}
+
+.features__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.features__title {
+    font-size: var(--fs-h2);
+    line-height: var(--lh-h2);
+    font-weight: 600;
+    color: var(--color-black);
+    margin-bottom: 8px;
+}
+
+.features__subtitle {
+    font-size: var(--fs-body-2);
+    line-height: var(--lh-body-2);
+    color: var(--color-grey);
+    margin-bottom: 40px;
+}
+
+/*3 sütunlu ızgara yapısı*/
+.features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.card {
+    background-color: var(--color-white);
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-8px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    /* Kartı hafifçe yukarı kaldırır */
+    box-shadow: var(--shadow-4px);
+}
+
+.card__icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px 0 8px 8px;
+    background-color: var(--color-tint-5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+
+.card__icon {
+    width: 32px;
+    height: 32px;
+}
+
+.card__title {
+    font-size: var(--fs-h3);
+    line-height: var(--lh-h3);
+    font-weight: 600;
+    color: var(--color-black);
+    margin-bottom: 8px;
+}
+
+.card__description {
+    font-size: var(--fs-body-3);
+    line-height: var(--lh-body-3);
+    color: var(--color-grey);
+}
+
+.info-section {
+    background-color: var(--color-white);
+    padding: 64px 0;
+}
+
+.info-section__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 64px;
+}
+
+.info-section__image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.info-section__image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.info-section__content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.info-section__title {
+    font-size: var(--fs-h2);
+    line-height: var(--lh-h2);
+    font-weight: 600;
+    color: var(--color-black);
+    margin-bottom: 16px;
+}
+
+.info-section__description {
+    font-size: var(--fs-body-3);
+    line-height: var(--lh-body-3);
+    color: var(--color-grey);
+    margin-bottom: 32px;
 }
