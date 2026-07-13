@@ -40,30 +40,60 @@
     </header>
     <main>
         <!--PART2: HERO SECTİON-->
-        <section class="hero">
-            <div class="hero__container">
-                <div class="hero__content">
-                    <h1 class="hero__title">
-                        Lessons and insights <br>
-                        <span class="hero__title--gradient">from 8 years</span>
-                    </h1>
-                    <p class="hero__description">
-                        Where to grow your business as a photographer: site or social media?
-                    </p>
-                    <a href="#" class="btn btn--primary">Register</a>
+        <section class="hero swiper mySwiper">
+            <div class="swiper-wrapper">
+
+                <!-- 1. SAYFA DÜZENİ -->
+                <div class="swiper-slide">
+                    <div class="hero__container">
+                        <div class="hero__content">
+                            <h1 class="hero__title">Lessons and insights <br><span class="hero__title--gradient">from 8
+                                    years</span></h1>
+                            <p class="hero__description">Where to grow your business as a photographer: site or social
+                                media?</p>
+                            <a href="#" class="btn btn--primary">Register</a>
+                        </div>
+                        <div class="hero__image-wrapper">
+                            <img src="assets/images/Illustration.svg" alt="Lessons and insights illustration"
+                                class="hero__image">
+                        </div>
+                    </div>
                 </div>
-                <div class="hero__image-wrapper">
-                    <img src="assets/images/Illustration.svg" alt="Lessons and insights illustration"
-                        class="hero__image">
+
+                <!-- 2. SAYFA DÜZENİ -->
+                <div class="swiper-slide">
+                    <div class="hero__container">
+                        <div class="hero__image-wrapper">
+                            <img src="assets/images/Illustration.svg" alt="Lessons and insights illustration"
+                                class="hero__image">
+                        </div>
+                        <div class="hero__content">
+                            <h1 class="hero__title">Lessons and insights <br><span class="hero__title--gradient">from 8
+                                    years</span></h1>
+                            <p class="hero__description">Where to grow your business as a photographer: site or social
+                                media?</p>
+                            <a href="#" class="btn btn--primary">Register</a>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- 3. SAYFA DÜZENİ -->
+                <div class="swiper-slide">
+                    <div class="hero__container hero__container--centered">
+                        <div class="hero__content">
+                            <h1 class="hero__title">Lessons and insights <br><span class="hero__title--gradient">from 8
+                                    years</span></h1>
+                            <p class="hero__description">Where to grow your business as a photographer: site or social
+                                media?</p>
+                            <a href="#" class="btn btn--primary">Register</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <!--
-            ● ○ ○ şeklindeki slider göstergeleridir. / Şu an sadece görsel amaçlı. *İLERDE JS İLE ÇALIŞTIRILACAK.-->
-            <div class="hero__dots">
-                <span class="hero__dot hero__dot--active"></span>
-                <span class="hero__dot"></span>
-                <span class="hero__dot"></span>
-            </div>
+
+            <!-- 3 Noktanın otomatik oluşacağı alan -->
+            <div class="swiper-pagination"></div>
         </section>
 
         <!--PART3: CLIENTS SECTİON-->
@@ -86,7 +116,7 @@
         <section class="info-section">
             <div class="info-section__container">
                 <div class="info-section__image-wrapper">
-                    <img src="assets/images/Frame 35.svg" alt="Three years at Pixelgrade illustration"
+                    <img src="assets/images/Frame35.svg" alt="Three years at Pixelgrade illustration"
                         class="info-section__image">
                 </div>
                 <div class="info-section__content">
@@ -102,10 +132,155 @@
                 </div>
             </div>
         </section>
+        <!--PART6: STATS SECTİON-->
+        <section class="stats">
+            <div class="stats__container">
+                <div class="stats_content">
+                    <h2 class="stats__title">Helping a local <br>
+                        <span class="stats__title--gradient">business reinvent itself</span>
+                    </h2>
+                    <p class="stats__subtitle">We reached here with our hard work and dedication</p>
+                </div>
+                <div class="stats__grid" id="statsGridContainer">
+                </div>
+            </div>
+            <!--PART7: INFO SECTION2-->
+        </section>
+        <section class="info-section-alt">
+            <div class="info-section-alt__container">
+                <div class="info-section-alt__image-wrapper">
+                    <img src="assets/images/InfoSection2.svg" alt="How to design your site footer illustration"
+                        class="info-section-alt__image">
+                </div>
+                <div class="info-section-alt__content">
+                    <h2 class="info-section-alt__title">How to design your site footer like we did</h2>
+                    <p class="info-section-alt__description">
+                        Donec a erat in lectus aliquet conguet vestibulum tellus. Fusce ac iaculis ex. Morbi vel egestas
+                        dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. In egestas porttitor
+                        rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus interdum, nisi ac
+                        elementum varius, ante nibh elementum lorem, ut elementum quam sem sit amet nisi.
+                    </p>
+                    <a href="#" class="btn btn--primary">Learn More</a>
+                </div>
+            </div>
 
+            <!--PART8: TESTİMONYAL SECTİON-->
+        </section>
+        <section class="testimonial">
+            <div class="testimonial__container">
 
-        </div>
+                <div class="testimonial__image-wrapper">
+                    <img src="assets/images/TSI.svg" alt="Tesla Case Study" class="testimonial__image">
+                </div>
+
+                <div class="testimonial__content">
+                    <p class="testimonial__text">
+                        Maecenas dignissim justo eget nulla rutrum molestie. Maecenas lobortis sem dui, vel rutrum risus
+                        tincidunt ullamcorper. Proin eu enim metus. Vivamus sed libero ornare, tristique quam in,
+                        gravida enim. Nullam ut molestie arcu, at hendrerit elit. Morbi laoreet elit at ligula molestie,
+                        nec molestie mi blandit. Suspendisse cursus tellus sed augue ultrices, quis tristique nulla
+                        sodales. Suspendisse eget lorem eu turpis vestibulum pretium. Suspendisse potenti. Quisque
+                        malesuada enim sapien, vitae placerat ante feugiat eget. Quisque vulputate odio neque, eget
+                        efficitur libero condimentum id. Curabitur id nibh id sem dignissim finibus ac sit amet magna.
+                    </p>
+
+                    <div class="testimonial__author">
+                        <h4 class="testimonial__author-name">Tim Smith</h4>
+                        <p class="testimonial__author-title">British Dragon Boat Racing Association</p>
+                    </div>
+
+                    <div class="testimonial__meta">
+                        <div class="testimonial__brands">
+                            <img src="assets/images/logo1.svg" alt="Brand 1" class="testimonial__brand-img">
+                            <img src="assets/images/logo2.svg" alt="Brand 2" class="testimonial__brand-img">
+                            <img src="assets/images/logo3.svg" alt="Brand 3" class="testimonial__brand-img">
+                            <img src="assets/images/logo4.svg" alt="Brand 4" class="testimonial__brand-img">
+                            <img src="assets/images/logo5.svg" alt="Brand 5" class="testimonial__brand-img">
+                            <img src="assets/images/logo6.svg" alt="Brand 6" class="testimonial__brand-img">
+                        </div>
+                        <a href="#" class="testimonial__link">Meet all customers &rarr;</a>
+                    </div>
+                </div>
+            </div>
+            <!--PART9: BLOG SECTİON-->
+        </section>
+        <section class="blog">
+            <div class="blog__container">
+                <h2 class="blog__title">Caring is the new marketing</h2>
+                <p class="blog__subtitle">
+                    The Nextcent blog is the best place to read about the latest membership insights, trends and more.
+                    See who's joining the community, read about how our community are increasing their membership income
+                    and lot's more.
+                </p>
+
+                <div class="blog__grid" id="blogGridContainer">
+                </div>
+            </div>
+        </section>
+        <!--PART10: CTA(CALL TO ACTION)-->
+        <section class="cta-banner">
+            <div class="cta-banner__container">
+                <h2 class="cta-banner__title">Pellentesque suscipit <br> fringilla libero eu.</h2>
+                <a href="#" class="btn btn--primary">Get a Demo &rarr;</a>
+            </div>
+        </section>
     </main>
+    <!--FOOTER SECTION-->
+    <footer class="footer">
+        <div class="footer__container">
+
+            <div class="footer__brand-col">
+                <a href="#" class="footer__logo">
+                    <img src="assets/images/Icon.svg" alt="Nexcent Logo" class="footer__logo-img">
+                    <span class="footer__logo-text">Nexcent</span>
+                </a>
+                <p class="footer__copyright"><!-- TELİF HAKKI BİLGİSİ BULUNUR-->
+                    Copyright &copy; 2020 Landify UI Kit. <br>
+                    All rights reserved
+                </p>
+                <div class="footer__socials"><!-- SOSYAL MEDYA BAĞLANTILARI BULUNUR-->
+                    <a href="#" class="footer__social-link"><img src="assets/images/footer1.svg" alt="Instagram"></a>
+                    <a href="#" class="footer__social-link"><img src="assets/images/footer2.png" alt="Dribbble"></a>
+                    <a href="#" class="footer__social-link"><img src="assets/images/footer3.svg" alt="Twitter"></a>
+                    <a href="#" class="footer__social-link"><img src="assets/images/footer4.svg" alt="Youtube"></a>
+                </div>
+            </div>
+
+            <div class="footer__links-col">
+                <h4 class="footer__title">Company</h4>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link">About us</a></li>
+                    <li><a href="#" class="footer__link">Blog</a></li>
+                    <li><a href="#" class="footer__link">Contact us</a></li>
+                    <li><a href="#" class="footer__link">Pricing</a></li>
+                    <li><a href="#" class="footer__link">Testimonials</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__links-col">
+                <h4 class="footer__title">Support</h4>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link">Help center</a></li>
+                    <li><a href="#" class="footer__link">Terms of service</a></li>
+                    <li><a href="#" class="footer__link">Legal</a></li>
+                    <li><a href="#" class="footer__link">Privacy policy</a></li>
+                    <li><a href="#" class="footer__link">Status</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__form-col">
+                <h4 class="footer__title">Stay up to date</h4>
+                <form class="footer__form">
+                    <input type="email" placeholder="Your email address" class="footer__input" required>
+                    <button type="submit" class="footer__form-btn">
+                        <img src="assets/images/Vector.svg" alt="Send">
+                    </button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script><!-- Swiper JS kütüphanesi -->
     <script src="js/index.js"></script>
 
 </body>

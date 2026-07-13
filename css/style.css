@@ -30,7 +30,9 @@
     --color-success: #2E7D31;
 
     --fs-h1: 64px;
+    /*Heading1 Boyutu*/
     --lh-h1: 76px;
+    /*H1 Satır Aralarındaki Boşluk*/
     --fs-h2: 36px;
     --lh-h2: 44px;
     --fs-h3: 28px;
@@ -64,15 +66,15 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    color: var(--color-d-grey);
     background-color: var(--color-white);
     -webkit-font-smoothing: antialiased;
     /*Pikselliği önler.*/
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
     text-decoration: none;
-    color: inherit;
+    /*varsayılan alt çizgiyi kaldırır.*/
 }
 
 ul {
@@ -115,8 +117,10 @@ img {
     box-shadow: none;
     border-bottom: 1px solid var(--color-silver);
     position: sticky;
+    /*header sayfanın üzerinde kalıcı hale gelir.*/
     top: 0;
     z-index: 1000;
+    /*Header'ın diğer içeriklerin altında kalmasını engeller.*/
 }
 
 .header__container {
@@ -171,40 +175,83 @@ img {
     align-items: center;
 }
 
-.hero {
+
+/*  HERO SECTION (SWIPER CAROUSEL)*/
+
+/* Swiper'ın ana dış kapsayıcısı */
+.hero.swiper {
     background-color: var(--color-silver);
-    padding: 96px 0 48px 0;
+    padding: 96px 0 80px 0;
+    width: 100%;
     position: relative;
+    /*Absolute çalışan eleman kendisine en yakın relative ebeveyne göre konumlanır.*/
     overflow: hidden;
+    /*Swiper'ın en önemli özelliklerinden biridir. Örn:3600px total ama kullanıcı sadece 1200px görür.*/
 }
 
+/* Tüm slaytları yan yana tutan ve Swiper motorunun hareket ettirdiği şerit */
+.swiper-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Her bir bağımsız sayfa düzeni (Slayt) */
+.swiper-slide {
+    width: 100%;
+    flex-shrink: 0;
+    /* Slaytların genişliğinin bozulmasını engeller */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sayfa düzenlerinin içindeki güvenli 1200px'lik hizalama kutusu */
 .hero__container {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    gap: 80px;
 }
 
+/* 3. Sayfa düzeni için tam ortalanmış esnek yapı */
+.hero__container--centered {
+    justify-content: center;
+    text-align: center;
+}
+
+.hero__container--centered .hero__content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Butonu ve metinleri yatayda tam ortalar */
+}
+
+/* Tipografi ve İçerik Elemanları */
 .hero__content {
-    flex: 1;
     max-width: 650px;
 }
 
 .hero__title {
     font-size: var(--fs-h1);
-    line-height: 1.2;
+    line-height: var(--lh-h1);
     font-weight: 600;
     color: var(--color-black);
-    margin-bottom: 24px;
+    margin-bottom: 16px;
+    /*Başlık ile paragraf arasındaki boşluk.*/
 }
 
 .hero__title--gradient {
     color: var(--color-primary);
 }
 
+/* Alt açıklama yazısının font büyüklüğünü koruyoruz */
 .hero__description {
     font-size: var(--fs-body-2);
     line-height: var(--lh-body-2);
@@ -213,37 +260,53 @@ img {
 }
 
 .hero__image-wrapper {
-    flex: 1;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero__image {
     max-width: 100%;
     height: auto;
     object-fit: contain;
+    /*Resim kırpılmaz, tamamı görünür.*/
 }
 
-.hero__dots {
+/*
+   SWIPER PAGINATION (3 NOKTA) ÖZELLEŞTİRMESİ
+
+/* Noktaların toplu durduğu alt barın konumu */
+.hero .swiper-pagination {
+    bottom: 32px;
+    /* Sayfa altına olan güvenli mesafesi */
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 8px;
-    margin-top: 32px;
 }
 
-.hero__dot {
+/* Genel (Aktif olmayan) Nokta Stili */
+.hero .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
-    border-radius: 50%;
     background-color: var(--color-grey-blue);
+    /* İnaktif gri tonu */
+    opacity: 1;
+    /* Swiper'ın kendi varsayılan şeffaflığını ezdik */
+    border-radius: 50%;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
+    /* Geçiş animasyonu */
 }
 
-.hero__dot--active {
+/* Figma Tasarımındaki Aktif Yeşil Kapsül Efekti */
+.hero .swiper-pagination-bullet-active {
     background-color: var(--color-primary);
+    /* Marka yeşilimiz */
     width: 24px;
+    /* Noktadan kapsüle genişleme genişliği */
     border-radius: 4px;
+    /* Yumuşatılmış dikdörtgen formu */
 }
 
 .clients {
@@ -423,4 +486,466 @@ img {
     line-height: var(--lh-body-3);
     color: var(--color-grey);
     margin-bottom: 32px;
+}
+
+.stats {
+    background-color: var(--color-silver);
+    padding: 64px 0;
+}
+
+.stats__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 64px;
+}
+
+.stats__content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.stats__title {
+    font-size: var(--fs-h2);
+    line-height: var(--lh-h2);
+    font-weight: 600;
+    color: var(--color-black);
+    margin-bottom: 8px;
+}
+
+.stats__title--gradient {
+    color: var(--color-primary);
+}
+
+.stats__subtitle {
+    font-size: var(--fs-body-3);
+    line-height: var(--lh-body-3);
+    color: var(--color-black);
+}
+
+.stats__grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 32px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.stat-item__icon {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.stat-item__number {
+    font-size: var(--fs-h3);
+    line-height: var(--lh-h3);
+    font-weight: 700;
+    color: var(--color-black);
+}
+
+.stat-item__label {
+    font-size: var(--fs-body-3);
+    line-height: var(--lh-body-3);
+    color: var(--color-grey);
+}
+
+.info-section-alt {
+    background-color: var(--color-white);
+    padding: 64px 0;
+}
+
+.info-section-alt__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 64px;
+}
+
+.info-section-alt__image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.info-section-alt__image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.info-section-alt__content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.info-section-alt__title {
+    font-size: var(--fs-h2);
+    line-height: var(--lh-h2);
+    font-weight: 600;
+    color: var(--color-black);
+    margin-bottom: 16px;
+}
+
+.info-section-alt__description {
+    font-size: var(--fs-body-3);
+    line-height: var(--lh-body-3);
+    color: var(--color-grey);
+    margin-bottom: 32px;
+}
+
+.testimonial {
+    background-color: var(--color-silver);
+    padding: 64px 0;
+}
+
+.testimonial__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+
+.testimonial__image-wrapper {
+    flex: 1;
+    max-width: 320px;
+}
+
+.testimonial__image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.testimonial__content {
+    flex: 2;
+}
+
+.testimonial__text {
+    font-size: var(--fs-body-2);
+    line-height: var(--lh-body-2);
+    color: var(--color-grey);
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.testimonial__author {
+    margin-bottom: 32px;
+}
+
+.testimonial__author-name {
+    font-size: var(--fs-body-1);
+    line-height: var(--lh-body-1);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 4px;
+}
+
+.testimonial__author-title {
+    font-size: var(--fs-body-3);
+    line-height: var(--lh-body-3);
+    color: var(--color-l-grey);
+}
+
+.testimonial__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.testimonial__brands {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-grow: 1;
+}
+
+.testimonial__brand-img {
+    height: 50px;
+    max-width: 120px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+.testimonial__brand-img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.testimonial__link {
+    font-size: var(--fs-body-2);
+    line-height: var(--lh-body-2);
+    font-weight: 600;
+    color: var(--color-primary);
+    transition: color 0.2s ease;
+}
+
+.testimonial__link:hover {
+    color: var(--color-shade-3);
+}
+
+.blog {
+    background-color: var(--color-white);
+    padding: 64px 0 96px 0;
+    text-align: center;
+}
+
+.blog__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.blog__title {
+    font-size: var(--fs-h2);
+    line-height: var(--lh-h2);
+    font-weight: 600;
+    color: var(--color-black);
+    margin-bottom: 8px;
+}
+
+.blog__subtitle {
+    font-size: var(--fs-body-2);
+    line-height: var(--lh-body-2);
+    color: var(--color-grey);
+    max-width: 800px;
+    margin: 0 auto 48px auto;
+}
+
+.blog__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.blog-card__img-wrapper {
+    width: 100%;
+    height: 240px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.blog-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-card__image {
+    transform: scale(1.05);
+    /* Hover durumunda görsele hafif zoom efekti */
+}
+
+/* Taşmayı Sağlayan Sihirli Kutu */
+.blog-card__box {
+    background-color: var(--color-white);
+    padding: 16px;
+    width: 85%;
+    border-radius: 8px;
+    box-shadow: var(--shadow-4px);
+    margin-top: -60px;
+    /* Negatif margin sayesinde görselin üzerine taşırdık */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 140px;
+}
+
+.blog-card__title {
+    font-size: var(--fs-body-2);
+    line-height: var(--lh-body-2);
+    font-weight: 600;
+    color: var(--color-grey);
+    margin-bottom: 16px;
+}
+
+.blog-card__link {
+    font-size: var(--fs-body-2);
+    line-height: var(--lh-body-2);
+    font-weight: 600;
+    color: var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.blog-card__link:hover {
+    color: var(--color-shade-3);
+}
+
+.cta-banner {
+    background-color: var(--color-silver);
+    padding: 64px 0;
+    text-align: center;
+}
+
+.cta-banner__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.cta-banner__title {
+    font-size: 48px;
+    /* H1 ve H2 arası özel bir vurgu boyutu */
+    line-height: 56px;
+    font-weight: 600;
+    color: var(--color-black);
+}
+
+.footer {
+    background-color: var(--color-black);
+    color: var(--color-silver);
+    padding: 64px 0;
+}
+
+.footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* 1. Sütun Özel Ayarları */
+.footer__brand-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 250px;
+}
+
+.footer__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-white);
+}
+
+.footer__logo-img {
+    height: 24px;
+}
+
+.footer__copyright {
+    font-size: var(--fs-body-4);
+    line-height: var(--lh-body-4);
+    color: var(--color-silver);
+}
+
+.footer__socials {
+    display: flex;
+    gap: 16px;
+}
+
+.footer__social-link {
+    width: 32px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.footer__social-link:hover {
+    background-color: var(--color-primary);
+}
+
+/* Genel Link Sütunları Ayarları */
+.footer__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: 24px;
+}
+
+.footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer__link {
+    font-size: var(--fs-body-3);
+    line-height: var(--lh-body-3);
+    color: var(--color-silver);
+    transition: color 0.2s ease;
+}
+
+.footer__link:hover {
+    color: var(--color-primary);
+}
+
+/* Bülten Formu Alanı */
+.footer__form-col {
+    max-width: 260px;
+    width: 100%;
+}
+
+.footer__form {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.footer__input {
+    width: 100%;
+    padding: 12px 40px 12px 12px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 8px;
+    color: var(--color-white);
+    font-size: var(--fs-body-3);
+    outline: none;
+}
+
+.footer__input::placeholder {
+    color: #D9DBE1;
+}
+
+.footer__form-btn {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
