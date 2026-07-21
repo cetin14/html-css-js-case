@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // 3 Nokta (Pagination) Yönetimi
         pagination: {
             el: ".swiper-pagination",
-            clickable: true,    // Noktalara tıklandığında ilgili sayfaya uçsun
+            clickable: true,
         },
     });
 

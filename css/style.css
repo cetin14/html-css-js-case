@@ -949,3 +949,124 @@ img {
     align-items: center;
     justify-content: center;
 }
+
+/*RESPONSIVE DESIGN (MEDIA QUERIES)*/
+
+/* 1. TABLET VE KÜÇÜK EKRANLAR (Max-width: 992px) */
+@media screen and (max-width: 992px) {
+    :root {
+        /* Büyük başlıkları ekran boyutuna göre biraz küçültüyoruz */
+        --fs-h1: 44px;
+        --lh-h1: 52px;
+        --fs-h2: 30px;
+        --lh-h2: 38px;
+    }
+
+    /* Grid ve Flex Yapılarını 2 Sütuna Çekiyoruz veya Esnetiyoruz */
+    .features__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .blog__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats__container,
+    .testimonial__container {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .stats__content,
+    .testimonial__content {
+        max-width: 100%;
+    }
+
+    .testimonial__meta {
+        justify-content: center;
+    }
+
+    .testimonial__brands {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* 2. MOBİL CİHAZLAR (Max-width: 768px) */
+@media screen and (max-width: 768px) {
+    :root {
+        --fs-h1: 32px;
+        --lh-h1: 40px;
+        --fs-h2: 26px;
+        --lh-h2: 32px;
+    }
+
+    /* HEADER: Elemanları dikeyde hizalıyoruz (Temel Düzey) */
+    .header__container {
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px 24px;
+    }
+
+    .header__menu {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* HERO: Görsel ve Metni Alt Alta Alıyoruz */
+    .hero__container {
+        flex-direction: column-reverse;
+        /* Görselin metnin üzerinde veya altında durma tercihi */
+        gap: 40px;
+        text-align: center;
+    }
+
+    .hero__content {
+        max-width: 100%;
+    }
+
+    /* INFO SECTIONS: Resim ve içerik alt alta */
+    .info-section__container,
+    .info-section-alt__container {
+        flex-direction: column;
+        gap: 32px;
+        text-align: center;
+    }
+
+    .info-section-alt__container {
+        flex-direction: column-reverse;
+        /* Alternatif düzen için resmi yine alta/üste alabiliriz */
+    }
+
+    /* TÜM GRID YAPILARINI TEK SÜTUNA DÜŞÜRÜYORUZ */
+    .features__grid,
+    .stats__grid,
+    .blog__grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* İletişim Formu ve Footer Düzenlemeleri */
+    .footer__container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 32px;
+    }
+
+    .footer__brand-col,
+    .footer__form-col {
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .footer__socials {
+        justify-content: center;
+    }
+
+    .cta-banner__title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
